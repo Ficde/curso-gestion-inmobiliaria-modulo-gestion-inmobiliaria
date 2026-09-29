@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espacio de Repaso - FICDE</title>
+    <title>Espacio de Repaso - Módulo: LA GESTIÓN INMOBILIARIA</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -363,7 +363,7 @@
                 <img src="logo.png" alt="FICDE" class="logo-img" onerror="this.style.display='none'; document.getElementById('altLogo').style.display='block'">
                 <h2 id="altLogo" style="display:none; color:white; font-weight:800;">FICDE</h2>
             </div>
-            <div class="module-tag">Módulo Gestión Inmobiliaria</div>
+            <div class="module-tag">Módulo: LA GESTIÓN INMOBILIARIA</div>
         </header>
 
         <div id="selectionScreen">
@@ -379,25 +379,25 @@
                 <div class="block-card" onclick="startModule('sintesis')">
                     <div class="block-icon">🧠</div>
                     <div class="block-title">Síntesis</div>
-                    <div class="block-desc">Introducción a la gestión inmobiliaria, su función, alcance profesional, objetivos del curso y rol del gestor en el mercado.</div>
+                    <div class="block-desc">concepto de negocio inmobiliario, derechos reales y personales, numerus clausus, clasificaciones de derechos reales, teoría del título y modo, elementos del contrato, clasificaciones contractuales, contrato de locación, boleto de compraventa y contrato de mandato.</div>
                 </div>
 
                 <div class="block-card" onclick="startModule('analisis')">
                     <div class="block-icon">🔍</div>
                     <div class="block-title">Análisis Crítico</div>
-                    <div class="block-desc">Reflexión sobre el rol profesional, la responsabilidad del gestor y la toma de decisiones en la práctica inmobiliaria.</div>
+                    <div class="block-desc">incumplimiento en servicios inmobiliarios, conflictos en la tradición posesoria, vicios en el consentimiento contractual, cláusulas abusivas en contratos por adhesión, mora y resolución anticipada de locación, invalidez por falta de forma ad solemnitatem, efectos del arrepentimiento en seña y reserva, riesgos de no realizar estudio de título, responsabilidad en el mandato y prohibiciones del comisionista.</div>
                 </div>
 
                 <div class="block-card" onclick="startModule('escenarios')">
                     <div class="block-icon">🎬</div>
                     <div class="block-title">Escenarios</div>
-                    <div class="block-desc">Situaciones reales del ejercicio profesional vinculadas a comunicación, jerarquía, decisiones operativas y gestión responsable.</div>
+                    <div class="block-desc">tasación y comercialización de inmuebles, conflicto de posesión y tradición vacua, contrato de locación con destino vivienda, cobro ejecutivo de alquileres, resolución por caso fortuito, compraventa con pago en moneda extranjera, oferta de propiedad con reserva inmobiliaria, adquisición en subasta pública, ejecución de garantía hipotecaria y representación en contrato de mandato.</div>
                 </div>
 
                 <div class="block-card" onclick="startModule('practica')">
                     <div class="block-icon">⚡</div>
                     <div class="block-title">Práctica</div>
-                    <div class="block-desc">Aplicación concreta de criterios profesionales, organización del trabajo y toma de decisiones en la gestión inmobiliaria.</div>
+                    <div class="block-desc">verificación de matrícula en Registro de la Propiedad, confección de boleto de compraventa, redacción de contrato de locación, aplicación de fórmula de seña o arras, cálculo de comisión inmobiliaria, tramitación de certificado de dominio e inhibiciones, aforo y certificación de firmas, revisión de garantías propietarias y recibos, elaboración de propuesta de compra y rendición de cuentas en mandato.</div>
                 </div>
             </div>
         </div>
@@ -502,658 +502,541 @@
             sintesis: [
                 {
                     type: 'text',
-                    badge: 'Gestión inmobiliaria',
-                    title: 'Concepto general',
-                    instruction: '¿ qué se entiende por gestión inmobiliaria dentro del mercado actual.?',
+                    badge: "Mercado inmobiliario",
+                    title: "Concepto y rol del gestor",
+                    instruction: "Define el concepto del negocio inmobiliario destacando la función profesional del gestor en Argentina.",
+                    tutor: "Considera el impacto económico del sector y la importancia del asesoramiento legal y técnico.",
+                    explanation: "El <strong>mercado</strong> inmobiliario impulsa la economía mientras el <strong>gestor</strong> profesional asesora en la <strong>comercialización</strong> de propiedades.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('gestion')) c++;
-                        if (v.includes('inmobiliari')) c++;
-                        if (v.includes('mercad')) c++;
-                        if (v.includes('administr')) c++;
-                        if (v.includes('comercializ')) c++;
-                        if (v.includes('intermedi')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en actividad profesional y mercado de bienes.',
-                    explanation: 'La gestión inmobiliaria es la actividad profesional orientada a administrar, comercializar e intermediar bienes dentro del mercado inmobiliario.'
+                        const roots = ["mercad", "gestor", "comerc", "inmobi", "impuls", "econom", "mientr", "profes", "asesor", "propie"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'text',
-                    badge: 'Mercado inmobiliario',
-                    title: 'Importancia económica',
-                    instruction: 'Explicá por qué el mercado inmobiliario es relevante para la economía.',
+                    badge: "Marco jurídico",
+                    title: "Derechos reales y personales",
+                    instruction: "Clasifica las diferencias estructurales entre los derechos reales sobre las cosas y los derechos personales o de crédito.",
+                    tutor: "Analiza la relación directa entre sujeto y cosa versus la relación entre acreedor y deudor.",
+                    explanation: "Los derechos <strong>reales</strong> vinculan directamente al titular con la cosa y los <strong>personales</strong> exigen una <strong>prestación</strong> del deudor.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('mercad')) c++;
-                        if (v.includes('econom')) c++;
-                        if (v.includes('inversion')) c++;
-                        if (v.includes('emple')) c++;
-                        if (v.includes('desarroll')) c++;
-                        if (v.includes('urban')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en inversión, empleo y desarrollo.',
-                    explanation: 'El mercado inmobiliario impulsa inversiones, genera empleo y contribuye al desarrollo económico y urbano.'
+                        const roots = ["reales", "person", "presta", "derech", "vincul", "direct", "titula", "cosa", "exigen", "deudor"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'checklist',
-                    badge: 'Actividad inmobiliaria',
-                    title: 'Aportes al desarrollo',
-                    instruction: 'Marcá los aportes del sector inmobiliario a la sociedad.',
+                    badge: "Tipicidad legal",
+                    title: "Enumeración de derechos reales",
+                    instruction: "Selecciona los tres derechos reales sobre cosa propia establecidos en el Código Civil y Comercial de la Nación.",
                     items: [
-                        { text: 'Promoción de inversiones', correct: true },
-                        { text: 'Actividad aislada', correct: false },
-                        { text: 'Desarrollo urbano', correct: true },
-                        { text: 'Generación de empleo', correct: true }
-                    ],
-                    tutor: 'Pensá en impacto social y económico.',
-                    explanation: 'La actividad inmobiliaria impacta en empleo, inversión y crecimiento urbano.'
+                        { text: "Dominio y condominio", correct: true },
+                        { text: "Propiedad horizontal", correct: true },
+                        { text: "Conjuntos inmobiliarios", correct: true },
+                        { text: "Contrato de locación urbano", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Busca las figuras jurídicas donde el titular ejerce facultades directas sobre un bien de su propiedad.",
+                    explanation: "El <strong>dominio</strong>, la <strong>propiedad</strong> horizontal y los <strong>conjuntos</strong> inmobiliarios constituyen derechos sobre cosa propia."
                 },
                 {
                     type: 'text',
-                    badge: 'Formación profesional',
-                    title: 'Objetivo',
-                    instruction: '¿cuál es el objetivo principal de la formación en gestión inmobiliaria.?',
+                    badge: "Creación de derechos",
+                    title: "Principio de numerus clausus",
+                    instruction: "Detalla la regla de número cerrado que rige la constitución y modificación de los derechos reales.",
+                    tutor: "Contempla la prohibición de crear derechos reales autónomos por la sola voluntad de los particulares.",
+                    explanation: "El principio de <strong>numerus</strong> clausus establece que solo la <strong>ley</strong> crea derechos reales siendo <strong>nula</strong> cualquier modificación privada.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('formacion')) c++;
-                        if (v.includes('profesional')) c++;
-                        if (v.includes('asesor')) c++;
-                        if (v.includes('oper')) c++;
-                        if (v.includes('capacit')) c++;
-                        if (v.includes('desempeñ')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en capacitación y desempeño laboral.',
-                    explanation: 'Formar profesionales capacitados para asesorar y operar correctamente en el ámbito inmobiliario.'
+                        const roots = ["numeru", "nula", "princi", "clausu", "establ", "solo", "crea", "derech", "reales", "siendo"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'blanks',
-                    badge: 'Rol profesional',
-                    title: 'Función del gestor',
-                    instruction: 'Completá la frase.<br><br>El gestor inmobiliario actúa como intermediario en operaciones de ________, compra y venta.',
-                    blanks: ['alquiler'],
-                    tutor: 'Pensá en operaciones habituales.',
-                    explanation: 'El gestor interviene en alquileres, compras y ventas de bienes.'
+                    anyOrder: false,
+                    badge: "Transmisión de derechos",
+                    title: "Teoría del título y el modo",
+                    instruction: "Completar la frase<br><br>Para adquirir un derecho real sobre un inmueble se requiere un ______ suficiente y el _____ suficiente representado por la tradición posesoria.",
+                    blanks: ["título", "modo"],
+                    tutor: "Recuerda los dos requisitos de fondo y forma indispensables para la constitución válida del derecho.",
+                    explanation: "La adquisición exige un <strong>título</strong> causante válido y un <strong>modo</strong> efectivo mediante la <strong>tradición</strong> del inmueble."
                 },
                 {
                     type: 'text',
-                    badge: 'Perfil profesional',
-                    title: 'Capacidades del gestor',
-                    instruction: 'Explicá qué capacidades debe desarrollar un gestor inmobiliario.',
+                    badge: "Estructura del contrato",
+                    title: "Elementos esenciales",
+                    instruction: "Expone los tres elementos esenciales indispensables para la existencia y validez de todo contrato.",
+                    tutor: "Agrupa la manifestación de voluntad, la prestación patrimonial y la finalidad jurídica perseguida.",
+                    explanation: "Todo contrato requiere el <strong>consentimiento</strong> de las partes, un <strong>objeto</strong> lícito y una <strong>causa</strong> que lo justifique.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('capacid')) c++;
-                        if (v.includes('gestion')) c++;
-                        if (v.includes('asesoramient')) c++;
-                        if (v.includes('negociacion')) c++;
-                        if (v.includes('operacion')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en negociación y asesoramiento.',
-                    explanation: 'Debe desarrollar capacidades de gestión, asesoramiento y negociación en operaciones inmobiliarias.'
+                        const roots = ["consen", "objeto", "causa", "contra", "requie", "partes", "licito", "justif", "expone", "tres"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'checklist',
-                    badge: 'Tareas del gestor',
-                    title: 'Funciones habituales',
-                    instruction: 'Marcá funciones propias del gestor inmobiliario.',
+                    badge: "Categorías contractuales",
+                    title: "Clasificación de los contratos",
+                    instruction: "Identifica las tres categorías aplicables al contrato de locación inmobiliaria según la ley.",
                     items: [
-                        { text: 'Intermediar operaciones', correct: true },
-                        { text: 'Emitir sentencias judiciales', correct: false },
-                        { text: 'Asesorar clientes', correct: true },
-                        { text: 'Gestionar trámites', correct: true }
-                    ],
-                    tutor: 'Pensá en tareas profesionales reales.',
-                    explanation: 'El gestor cumple funciones de intermediación, asesoramiento y gestión administrativa.'
+                        { text: "Bilateral y oneroso", correct: true },
+                        { text: "Conmutativo y nominado", correct: true },
+                        { text: "De ejecución continuada", correct: true },
+                        { text: "Unilateral y gratuito", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Analiza las obligaciones recíprocas, las ventajas conocidas y el cumplimiento extendido en el tiempo.",
+                    explanation: "La locación es un acuerdo <strong>bilateral</strong>, <strong>oneroso</strong> y <strong>conmutativo</strong> regulado por el ordenamiento legal."
                 },
                 {
                     type: 'text',
-                    badge: 'Ética profesional',
-                    title: 'Valores en la gestión',
-                    instruction: '¿ por qué la ética es importante en la gestión inmobiliaria’',
+                    badge: "Contratos particulares",
+                    title: "Caracteres de la locación",
+                    instruction: "Describe los elementos constitutivos del contrato de locación de inmuebles y el pago del canon.",
+                    tutor: "Observa la cesión del uso y goce temporario a cambio de una suma de dinero determinada.",
+                    explanation: "El contrato de <strong>locación</strong> cede el <strong>uso</strong> temporario de un bien a cambio de un <strong>canon</strong> dinerario.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('etica')) c++;
-                        if (v.includes('responsabil')) c++;
-                        if (v.includes('profesion')) c++;
-                        if (v.includes('confianz')) c++;
-                        if (v.includes('bien')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en confianza y bien común.',
-                    explanation: 'La ética garantiza responsabilidad profesional y genera confianza en la actividad inmobiliaria.'
+                        const roots = ["locaci", "canon", "contra", "cede", "tempor", "bien", "cambio", "dinera", "descri", "elemen"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'traffic',
-                    badge: 'Gestión profesional',
-                    title: 'Afirmaciones básicas',
-                    instruction: 'Indicá si las afirmaciones son correctas o incorrectas.',
+                    badge: "Compromiso de venta",
+                    title: "Boleto de compraventa",
+                    instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: 'La actividad inmobiliaria genera empleo', color: 'green' },
-                        { text: 'La gestión inmobiliaria no impacta en la economía', color: 'red' },
-                        { text: 'El gestor inmobiliario debe actuar con ética', color: 'green' },
-                        { text: 'El asesoramiento no es parte del rol', color: 'red' }
-                    ],
-                    tutor: 'Relacioná gestión con responsabilidad profesional.',
-                    explanation: 'La gestión inmobiliaria implica ética, impacto económico y asesoramiento.'
+                        { text: "El boleto de compraventa documenta el acuerdo entre partes y fija las condiciones de la operación", color: "green" },
+                        { text: "El boleto de compraventa otorga automáticamente el derecho real de dominio sin necesidad de escritura", color: "red" },
+                        { text: "La escritura pública constituye el título formal requerido para transmitir el dominio sobre inmuebles", color: "green" },
+                        { text: "La certificación de firmas ante escribano en el boleto es un requisito de validez indispensable por ley", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Contrasta los efectos del boleto como contrato preliminar frente a la escritura pública.",
+                    explanation: "El <strong>boleto</strong> formaliza el acuerdo preliminar mientras la <strong>escritura</strong> pública transmite el <strong>dominio</strong>."
                 },
                 {
                     type: 'text',
-                    badge: 'Síntesis inicial',
-                    title: 'Rol del gestor inmobiliario',
-                    instruction: 'Explicá brevemente cuál es el rol del gestor inmobiliario en el mercado.',
+                    badge: "Representación jurídica",
+                    title: "Contrato de mandato",
+                    instruction: "Sintetiza la definición legal del contrato de mandato y la diferencia entre mandato representativo y comisión.",
+                    tutor: "Evalúa la realización de actos jurídicos en interés ajeno actuando a nombre propio o del mandante.",
+                    explanation: "El <strong>mandato</strong> encomienda la realización de <strong>actos</strong> jurídicos pudiendo ejercerse con o sin <strong>representación</strong>",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('rol')) c++;
-                        if (v.includes('gestion')) c++;
-                        if (v.includes('mercad')) c++;
-                        if (v.includes('intermediacion')) c++;
-                        if (v.includes('asesoramient')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Integrá funciones y responsabilidad.',
-                    explanation: 'El gestor inmobiliario cumple un rol clave en la gestión, intermediación y asesoramiento dentro del mercado inmobiliario.'
+                        const roots = ["mandat", "actos", "repres", "encomi", "realiz", "juridi", "pudien", "ejerce", "sintet", "defini"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 }
             ],
             analisis: [
                 {
                     type: 'text',
-                    badge: 'Rol profesional',
-                    title: 'Ejercicio de la profesión',
-                    instruction: 'Explicá por qué el rol del gestor inmobiliario requiere una formación específica.',
+                    badge: "Desempeño profesional",
+                    title: "Incumplimiento de servicios",
+                    instruction: "Examina las consecuencias legales y éticas cuando el gestor inmobiliario omite verificar la normativa vigente.",
+                    tutor: "Reflexiona sobre los perjuicios económicos causados al cliente y las sanciones derivadas del mal asesoramiento.",
+                    explanation: "Incurrir en <strong>negligencia</strong> al asesorar genera una <strong>infracción</strong> legal que activa la <strong>responsabilidad</strong> profesional.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('rol')) c++;
-                        if (v.includes('formacion')) c++;
-                        if (v.includes('gestion')) c++;
-                        if (v.includes('asesor')) c++;
-                        if (v.includes('decision')) c++;
-                        if (v.includes('responsabl')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en responsabilidades y decisiones profesionales.',
-                    explanation: 'El rol requiere formación porque implica asesorar, gestionar y tomar decisiones responsables en operaciones inmobiliarias.'
+                        const roots = ["neglig", "infrac", "respon", "incurr", "asesor", "genera", "legal", "activa", "profes", "examin"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'text',
-                    badge: 'Mercado inmobiliario',
-                    title: 'Impacto en la sociedad',
-                    instruction: 'Describí de qué manera la gestión inmobiliaria influye en la sociedad.',
+                    badge: "Fallas en la entrega",
+                    title: "Obstáculos a la tradición",
+                    instruction: "Evalúa los problemas jurídicos que surgen si se firma la tradición sin que el inmueble se encuentre vacuo.",
+                    tutor: "Considera la presencia de terceros oponibles que impiden la toma de posesión real y efectiva.",
+                    explanation: "Entregar un bien con <strong>ocupantes</strong> invalida la <strong>tradición</strong> real provocando la <strong>ineficacia</strong> del acto.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('impact')) c++;
-                        if (v.includes('socied')) c++;
-                        if (v.includes('mercad')) c++;
-                        if (v.includes('viviend')) c++;
-                        if (v.includes('desarroll')) c++;
-                        if (v.includes('urban')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en vivienda y desarrollo urbano.',
-                    explanation: 'La gestión inmobiliaria influye en la sociedad al facilitar el acceso a la vivienda y ordenar el desarrollo urbano.'
+                        const roots = ["tradic", "ocupan", "inefic", "entreg", "bien", "invali", "real", "provoc", "acto", "evalua"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'checklist',
-                    badge: 'Gestión responsable',
-                    title: 'Criterios profesionales',
-                    instruction: 'Marcá los criterios que reflejan una gestión inmobiliaria responsable.',
+                    badge: "Vicios de la voluntad",
+                    title: "Alteraciones del consentimiento",
+                    instruction: "Escoge los tres vicios de la voluntad que anulan la validez del consentimiento contractual.",
                     items: [
-                        { text: 'Improvisación', correct: false },
-                        { text: 'Respeto por las normas', correct: true },
-                        { text: 'Asesoramiento claro', correct: true },
-                        { text: 'Ética profesional', correct: true }
-                    ],
-                    tutor: 'Pensá en profesionalismo y responsabilidad.',
-                    explanation: 'La gestión responsable se basa en ética, claridad y respeto normativo.'
+                        { text: "Error excusable o dolo", correct: true },
+                        { text: "Violencia física o intimidación", correct: true },
+                        { text: "Falta de discernimiento", correct: true },
+                        { text: "Firma en conformidad ante escribano", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Identifica los factores internos y externos que vician la intención, la libertad o la capacidad.",
+                    explanation: "Sufrir <strong>error</strong>, <strong>violencia</strong> o falta de discernimiento anula la <strong>voluntad</strong> de los contratantes."
                 },
                 {
                     type: 'text',
-                    badge: 'Toma de decisiones',
-                    title: 'Evaluación previa',
-                    instruction: 'Explicá por qué es importante evaluar la información antes de tomar una decisión inmobiliaria.',
+                    badge: "Contratos por adhesión",
+                    title: "Cláusulas abusivas",
+                    instruction: "Explica los riesgos de desequilibrio contractual al imponer cláusulas predispuestas no negociadas.",
+                    tutor: "Analiza la vulnerabilidad del adherente frente a estipulaciones que restringen sus derechos o limitan garantías.",
+                    explanation: "Los contratos por <strong>adhesión</strong> pueden contener estipulaciones <strong>abusivas</strong> que generan <strong>desequilibrio</strong> entre las partes.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('evaluacion')) c++;
-                        if (v.includes('informacion')) c++;
-                        if (v.includes('decision')) c++;
-                        if (v.includes('fundament')) c++;
-                        if (v.includes('legal')) c++;
-                        if (v.includes('economic')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en consecuencias legales y económicas.',
-                    explanation: 'Evaluar la información permite tomar decisiones fundamentadas y evitar errores legales o económicos.'
+                        const roots = ["adhesi", "abusiv", "desequ", "contra", "pueden", "conten", "estipu", "genera", "partes", "explic"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'blanks',
-                    badge: 'Ética profesional',
-                    title: 'Vínculo con el cliente',
-                    instruction: 'Completá la frase.<br><br>La ética profesional fortalece la ________ entre el gestor y el cliente.',
-                    blanks: ['confianza'],
-                    tutor: 'Pensá en el vínculo profesional.',
-                    explanation: 'La ética es clave para construir confianza profesional.'
+                    anyOrder: false,
+                    badge: "Extinción locativa",
+                    title: "Resolución anticipada",
+                    instruction: "Completar la frase<br><br>La resolución anticipada por el locatario exige notificar al locador y abonar una _____________ calculada sobre el diez por ciento del _____ futuro.",
+                    blanks: ["indemnización", "canon"],
+                    tutor: "Recuerda el porcentaje de penalización previsto por la ley sobre los alquileres restantes.",
+                    explanation: "La <strong>resolución</strong> anticipada del <strong>locatario</strong> impone una <strong>indemnización</strong> equivalente al diez por ciento del <strong>canon</strong> pendiente."
                 },
                 {
                     type: 'text',
-                    badge: 'Asesoramiento',
-                    title: 'Aporte del gestor',
-                    instruction: 'Explicá cuál es el valor del asesoramiento dentro de la gestión inmobiliaria.',
+                    badge: "Inobservancia formal",
+                    title: "Invalidez por falta de escritura",
+                    instruction: "Juzga el impacto de omitir la escritura pública en la transferencia de bienes inmuebles.",
+                    tutor: "Observa la exigencia legal de la forma ad solemnitatem para la transmisión efectiva del dominio.",
+                    explanation: "Ignorar la <strong>forma</strong> legal requerida acarrea la <strong>nulidad</strong> del acto por incumplir el <strong>formalismo</strong>.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('asesoramient')) c++;
-                        if (v.includes('client')) c++;
-                        if (v.includes('gestion')) c++;
-                        if (v.includes('informad')) c++;
-                        if (v.includes('proces')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en acompañamiento y claridad.',
-                    explanation: 'El asesoramiento permite que el cliente tome decisiones informadas durante el proceso inmobiliario.'
+                        const roots = ["forma", "nulida", "formal", "ignora", "legal", "requer", "acarre", "acto", "incump", "juzga"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'checklist',
-                    badge: 'Buenas prácticas',
-                    title: 'Ejercicio profesional',
-                    instruction: 'Marcá prácticas que fortalecen el ejercicio profesional del gestor inmobiliario.',
+                    badge: "Arrepentimiento contractual",
+                    title: "Efectos de la seña",
+                    instruction: "Menciona las consecuencias legales cuando se pacta facultad de arrepentirse en la entrega de seña.",
                     items: [
-                        { text: 'Capacitación continua', correct: true },
-                        { text: 'Desinformación', correct: false },
-                        { text: 'Cumplimiento normativo', correct: true },
-                        { text: 'Comunicación clara', correct: true }
-                    ],
-                    tutor: 'Pensá en calidad profesional.',
-                    explanation: 'Las buenas prácticas mejoran la calidad del servicio inmobiliario.'
+                        { text: "Pérdida del dinero por quien lo entregó", correct: true },
+                        { text: "Devolución doblada por quien lo recibió", correct: true },
+                        { text: "Mantenimiento del contrato sin penalidad", correct: false },
+                        { text: "Cobro obligatorio de honorarios dobles", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Repasa la regla de penalización recíproca ante el desistimiento de la operación.",
+                    explanation: "El arrepentimiento implica la <strong>pérdida</strong> de la seña o su <strong>devolución</strong> doblada según quien <strong>desista</strong>."
                 },
                 {
                     type: 'text',
-                    badge: 'Responsabilidad profesional',
-                    title: 'Consecuencias de la gestión',
-                    instruction: 'Describí brevemente qué consecuencias puede generar una mala gestión inmobiliaria.',
+                    badge: "Omisión de controles",
+                    title: "Riesgos del estudio de título",
+                    instruction: "Argumenta por qué no realizar el estudio de título ante el Registro de la Propiedad expone a estafas.",
+                    tutor: "Contempla la posibilidad de adquirir un bien hipotecado, embargado o con titulares con inhibiciones.",
+                    explanation: "Omitir el estudio de <strong>título</strong> oculta <strong>gravámenes</strong> o <strong>embargos</strong> vigentes sobre el inmueble.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('responsabil')) c++;
-                        if (v.includes('consecuenci')) c++;
-                        if (v.includes('gestion')) c++;
-                        if (v.includes('conflict')) c++;
-                        if (v.includes('perdid')) c++;
-                        if (v.includes('legal')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en conflictos y sanciones.',
-                    explanation: 'Una mala gestión puede generar conflictos, pérdidas económicas y responsabilidades legales.'
+                        const roots = ["titulo", "gravam", "embarg", "omitir", "estudi", "oculta", "vigent", "inmueb", "argume", "realiz"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'traffic',
-                    badge: 'Rol del gestor',
-                    title: 'Afirmaciones críticas',
-                    instruction: 'Indicá si las afirmaciones son correctas o incorrectas.',
+                    badge: "Limitaciones comerciales",
+                    title: "Prohibiciones del comisionista",
+                    instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: 'El gestor inmobiliario influye en decisiones importantes', color: 'green' },
-                        { text: 'La improvisación mejora resultados', color: 'red' },
-                        { text: 'La evaluación previa reduce errores', color: 'green' },
-                        { text: 'La ética no afecta la gestión', color: 'red' }
-                    ],
-                    tutor: 'Relacioná responsabilidad con criterio profesional.',
-                    explanation: 'La gestión profesional requiere ética y evaluación previa.'
+                        { text: "El comisionista tiene prohibido alterar las marcas de los productos sin autorización del comitente", color: "green" },
+                        { text: "Es legal que el comisionista se adueñe de las ventajas de precio obtenidas en la negociación", color: "red" },
+                        { text: "Distraer los fondos entregados por el comitente hacia un destino distinto constituye una falta grave", color: "green" },
+                        { text: "El comisionista puede conceder créditos y préstamos libremente sin consultar al comitente", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Contrasta los deberes de fidelidad comercial con las conductas prohibidas al consignatario.",
+                    explanation: "Alterar marcas o <strong>distraer</strong> fondos vulnera la <strong>comisión</strong>, siendo obligatorio respetar las <strong>prohibiciones</strong>."
                 },
                 {
                     type: 'text',
-                    badge: 'Cierre crítico',
-                    title: 'Gestión profesional',
-                    instruction: 'Fundamentá por qué la gestión inmobiliaria debe ejercerse con criterio profesional.',
+                    badge: "Desviación de órdenes",
+                    title: "Responsabilidad del mandatario",
+                    instruction: "Diferencia las consecuencias de ejecutar el mandato apartándose de las instrucciones impartidas.",
+                    tutor: "Analiza el deber de responder por los daños ocasionados por actuar fuera de los límites encomendados.",
+                    explanation: "Actuar en <strong>exceso</strong> de las <strong>instrucciones</strong> responsabiliza al mandatario por los <strong>perjuicios</strong> provocados.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('criteri')) c++;
-                        if (v.includes('gestion')) c++;
-                        if (v.includes('profesional')) c++;
-                        if (v.includes('responsabil')) c++;
-                        if (v.includes('riesg')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en responsabilidad y toma de decisiones.',
-                    explanation: 'La gestión inmobiliaria debe ejercerse con criterio profesional para actuar con responsabilidad y minimizar riesgos.'
+                        const roots = ["instru", "exceso", "perjui", "actuar", "respon", "mandat", "provoc", "difere", "consec", "ejecut"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 }
             ],
             escenarios: [
                 {
                     type: 'text',
-                    badge: 'Canales de comunicación',
-                    title: 'Pedido directo del consorcista',
-                    instruction: 'Un consorcista solicita al encargado una tarea sin informar al administrador. Explicá cómo ordenarías la situación para evitar conflictos.',
+                    badge: "Comercialización de vivienda",
+                    title: "Asesoramiento inicial",
+                    instruction: "Plantea la estrategia de promoción y valuación sin valor judicial para una casa familiar en venta.",
+                    tutor: "Considera la estimación razonable del precio de venta y la difusión mediante canales apropiados.",
+                    explanation: "Realizar una <strong>valuación</strong> adecuada orienta el precio de <strong>mercado</strong> para una <strong>promoción</strong> exitosa.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('comunicacion')) c++;
-                        if (v.includes('jerarqui')) c++;
-                        if (v.includes('administrad')) c++;
-                        if (v.includes('canaliz')) c++;
-                        if (v.includes('formal')) c++;
-                        if (v.includes('respet')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en canales formales y roles definidos.',
-                    explanation: 'La situación se ordena aclarando que las indicaciones deben canalizarse por el administrador, respetando jerarquía y comunicación formal.'
+                        const roots = ["valuac", "mercad", "promoc", "realiz", "adecua", "orient", "precio", "exitos", "plante", "estrat"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'traffic',
-                    badge: 'Conductas operativas',
-                    title: 'Formas de actuar',
-                    instruction: 'Indicá si las conductas son correctas o incorrectas.',
+                    badge: "Conflicto posesorio",
+                    title: "Requisito de finca vacua",
+                    instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: 'Aceptar órdenes directas de cualquier consorcista', color: 'red' },
-                        { text: 'Respetar roles establecidos', color: 'green' },
-                        { text: 'Derivar el pedido al administrador', color: 'green' },
-                        { text: 'Actuar sin informar', color: 'red' }
-                    ],
-                    tutor: 'Relacioná jerarquía con orden laboral.',
-                    explanation: 'Las conductas correctas respetan roles y canales formales.'
+                        { text: "La presencia de ocupantes ilegales en el inmueble impide concretar la tradición posesoria efectiva", color: "green" },
+                        { text: "Se considera que hay tradición válida aunque el vendedor retenga las llaves de la propiedad", color: "red" },
+                        { text: "La tradición brevi manu ocurre cuando el tenedor pasa a ser poseedor por la compra del bien", color: "green" },
+                        { text: "El constituto posesorio exige que la propiedad sea entregada físicamente a un tercero judicial", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Evalúa la entrega libre de contradictores y las excepciones a la entrega física.",
+                    explanation: "La <strong>tradición</strong> requiere un bien sin <strong>ocupantes</strong> para transferir la <strong>posesión</strong> legalmente."
                 },
                 {
                     type: 'text',
-                    badge: 'Jornada laboral',
-                    title: 'Reclamo durante el descanso',
-                    instruction: 'Durante el descanso del encargado surge un reclamo menor. Explicá cómo decidís si corresponde intervenir.',
+                    badge: "Arrendamiento urbano",
+                    title: "Destino habitacional",
+                    instruction: "Diseña un contrato de locación destinado a vivienda especificando las cláusulas de plazo y actualización.",
+                    tutor: "Coordina la fijación de la moneda de pago, el período de reajuste y el destino exclusivo del bien.",
+                    explanation: "Pautar la <strong>locación</strong> para <strong>vivienda</strong> requiere definir el canon y el índice de <strong>actualización</strong>.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('descans')) c++;
-                        if (v.includes('urgenci')) c++;
-                        if (v.includes('criteri')) c++;
-                        if (v.includes('riesg')) c++;
-                        if (v.includes('priorid')) c++;
-                        if (v.includes('respet')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en riesgo y prioridad.',
-                    explanation: 'La decisión se toma evaluando si existe urgencia real o riesgo, respetando el descanso cuando no lo hay.'
+                        const roots = ["locaci", "vivien", "actual", "pautar", "requie", "defini", "canon", "indice", "disena", "contra"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'checklist',
-                    badge: 'Criterios de urgencia',
-                    title: 'Evaluación del reclamo',
-                    instruction: 'Marcá los criterios que justifican una intervención inmediata.',
+                    badge: "Incumplimiento del canon",
+                    title: "Cobro por vía ejecutiva",
+                    instruction: "Señala las tres condiciones requeridas para demandar el cobro ejecutivo de alquileres impagos.",
                     items: [
-                        { text: 'Molestia menor', correct: false },
-                        { text: 'Problema de seguridad', correct: true },
-                        { text: 'Solicitud estética', correct: false },
-                        { text: 'Riesgo para personas', correct: true }
-                    ],
-                    tutor: 'Pensá en prevención.',
-                    explanation: 'La urgencia se define por riesgo y seguridad.'
+                        { text: "Existencia de contrato de locación firmado", correct: true },
+                        { text: "Canon locativo expresado en dinero y vencido", correct: true },
+                        { text: "Intimación previa al pago en plazo legal", correct: true },
+                        { text: "Inscripción obligatoria del locatario en el registro comercial", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Busca los requisitos que otorgan exigibilidad directa al título para iniciar la demanda ejecutiva.",
+                    explanation: "Contar con <strong>contrato</strong>, un <strong>canon</strong> vencido e <strong>intimación</strong> previa habilita la vía ejecutiva."
                 },
                 {
                     type: 'text',
-                    badge: 'Comunicación profesional',
-                    title: 'Manejo del conflicto',
-                    instruction: 'Un consorcista insiste de forma inapropiada. Explicá cómo comunicás la decisión tomada.',
+                    badge: "Eventos imprevistos",
+                    title: "Frustración del uso y goce",
+                    instruction: "Desglosa las alternativas del locatario si un caso fortuito destruye parcialmente la aptitud del inmueble.",
+                    tutor: "Analiza la posibilidad de pedir la cesación del pago, la rebaja proporcional del alquiler o la rescisión.",
+                    explanation: "Ante un caso <strong>fortuito</strong> el locatario puede solicitar la <strong>reducción</strong> del precio o la <strong>rescisión</strong>.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('comunicacion')) c++;
-                        if (v.includes('respet')) c++;
-                        if (v.includes('decision')) c++;
-                        if (v.includes('clarid')) c++;
-                        if (v.includes('explic')) c++;
-                        if (v.includes('criter')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en claridad y trato profesional.',
-                    explanation: 'La decisión se comunica con claridad y respeto, explicando criterios sin confrontar.'
+                        const roots = ["fortui", "rescis", "reducc", "ante", "caso", "locata", "puede", "solici", "precio", "desglo"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'traffic',
-                    badge: 'Resolución de conflictos',
-                    title: 'Acciones posibles',
-                    instruction: 'Indicá si las acciones son correctas o incorrectas.',
+                    badge: "Pago en divisas",
+                    title: "Moneda extranjera",
+                    instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: 'Escuchar el reclamo con calma', color: 'green' },
-                        { text: 'Responder de forma impulsiva', color: 'red' },
-                        { text: 'Explicar el criterio aplicado', color: 'green' },
-                        { text: 'Ignorar la situación', color: 'red' }
-                    ],
-                    tutor: 'Pensá en comunicación profesional.',
-                    explanation: 'La escucha y la explicación reducen conflictos.'
+                        { text: "Las partes pueden pactar el canon o precio en moneda extranjera conforme a la legislación vigente", color: "green" },
+                        { text: "El deudor en moneda extranjera se libera entregando el equivalente en moneda nacional al tipo oficial", color: "red" },
+                        { text: "El locatario debe abonar el alquiler exactamente en la moneda pactada en la cláusula contractual", color: "green" },
+                        { text: "Prohibir el pago en dólares es una norma de orden público que anula todo boleto de compraventa", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Asocia la autonomía de la voluntad en la elección de la moneda de pago con la exigencia de cumplimiento.",
+                    explanation: "Convenir el <strong>pago</strong> en <strong>moneda</strong> extranjera obliga a entregar la <strong>divisa</strong> pactada contractualmente."
                 },
                 {
                     type: 'text',
-                    badge: 'Registro',
-                    title: 'Constancia de actuaciones',
-                    instruction: 'Explicá cuándo y por qué conviene dejar registro de una situación operativa.',
+                    badge: "Oferta de compra",
+                    title: "Reserva de inmueble",
+                    instruction: "Ilustra la dinámica de la reserva inmobiliaria efectuada por un interesado antes del boleto definitivo.",
+                    tutor: "Considera la entrega de dinero a la inmobiliaria ad referendum de la conformidad del propietario.",
+                    explanation: "Recibir una <strong>reserva</strong> implica receptar un <strong>depósito</strong> condicionado a la <strong>aceptación</strong> del vendedor.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('registr')) c++;
-                        if (v.includes('respald')) c++;
-                        if (v.includes('gestion')) c++;
-                        if (v.includes('control')) c++;
-                        if (v.includes('seguimient')) c++;
-                        if (v.includes('reclam')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en control y seguimiento.',
-                    explanation: 'El registro brinda respaldo y orden en la gestión ante reclamos futuros.'
+                        const roots = ["reserv", "deposi", "acepta", "recibi", "implic", "recept", "condic", "vended", "ilustr", "dinami"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'checklist',
-                    badge: 'Buenas prácticas',
-                    title: 'Gestión cotidiana',
-                    instruction: 'Marcá prácticas adecuadas en la gestión diaria.',
+                    badge: "Adquisición judicial",
+                    title: "Subasta pública",
+                    instruction: "Reúne los requisitos necesarios para perfeccionar la adquisición de un inmueble en remate judicial.",
                     items: [
-                        { text: 'Registro de tareas', correct: true },
-                        { text: 'Improvisación', correct: false },
-                        { text: 'Comunicación clara', correct: true },
-                        { text: 'Órdenes contradictorias', correct: false }
-                    ],
-                    tutor: 'Pensá en organización.',
-                    explanation: 'Las buenas prácticas ordenan la gestión diaria.'
+                        { text: "Auto aprobatorio de la subasta por el Juez", correct: true },
+                        { text: "Pago total del precio del remate", correct: true },
+                        { text: "Acta de toma de posesión judicial", correct: true },
+                        { text: "Boleto privado sin ratificación en el juzgado", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Agrupa las resoluciones del magistrado y el acta formal de entrega de la posesión.",
+                    explanation: "La <strong>subasta</strong> requiere el <strong>auto</strong> aprobatorio, pago completo y la <strong>posesión</strong> judicial."
                 },
                 {
                     type: 'text',
-                    badge: 'Prioridades',
-                    title: 'Toma de decisiones',
-                    instruction: 'Frente a dos reclamos simultáneos, explicá cómo establecés prioridades.',
+                    badge: "Garantía real",
+                    title: "Ejecución hipotecaria",
+                    instruction: "Expón las facultades del acreedor hipotecario si el propietario realiza actos que disminuyen el valor del bien.",
+                    tutor: "Contempla la solicitud de prohibición de innovar o la exigencia de un suplemento de garantía.",
+                    explanation: "Ante la <strong>hipoteca</strong> amenazada el acreedor solicita <strong>medidas</strong> judiciales <strong>conservatorias</strong> para resguardarse.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('priorid')) c++;
-                        if (v.includes('criteri')) c++;
-                        if (v.includes('decision')) c++;
-                        if (v.includes('urgenci')) c++;
-                        if (v.includes('impact')) c++;
-                        if (v.includes('aplic')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en urgencia e impacto.',
-                    explanation: 'Las prioridades se establecen según urgencia e impacto, aplicando criterio profesional.'
+                        const roots = ["hipote", "medida", "conser", "ante", "amenaz", "acreed", "solici", "judici", "resgua", "expon"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'traffic',
-                    badge: 'Evaluación final',
-                    title: 'Decisiones operativas',
-                    instruction: 'Indicá si las afirmaciones son correctas o incorrectas.',
+                    badge: "Gestión por terceros",
+                    title: "Mandato sin representación",
+                    instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: 'Improvisar mejora la gestión', color: 'red' },
-                        { text: 'La seguridad define prioridades', color: 'green' },
-                        { text: 'El criterio profesional orienta decisiones', color: 'green' },
-                        { text: 'Toda solicitud es urgente', color: 'red' }
-                    ],
-                    tutor: 'Priorizá con criterio profesional.',
-                    explanation: 'La correcta priorización mejora la gestión inmobiliaria.'
+                        { text: "En la comisión el mandatario actúa a nombre propio sin revelar la identidad de su mandante", color: "green" },
+                        { text: "El mandante queda directamente obligado frente a terceros en los actos del comisionista", color: "red" },
+                        { text: "El mandatario debe rendir cuentas detalladas de todas las operaciones realizadas al mandante", color: "green" },
+                        { text: "La muerte del mandatario no altera el contrato continuando los herederos sin pagar proporcional", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Contrasta la actuación a nombre propio frente a la representación directa con rendición de cuentas.",
+                    explanation: "La <strong>comisión</strong> permite actuar sin <strong>representación</strong>, obligando a rendir <strong>cuentas</strong> al mandante."
                 }
             ],
             practica: [
                 {
                     type: 'checklist',
-                    badge: 'Organización del trabajo',
-                    title: 'Acciones iniciales',
-                    instruction: 'Marcá acciones que ayudan a organizar correctamente la gestión diaria.',
+                    badge: "Verificación registral",
+                    title: "Pedido de informes",
+                    instruction: "Elige las tres constataciones básicas que debe realizar el corredor ante el Registro de la Propiedad.",
                     items: [
-                        { text: 'Registrar actuaciones', correct: true },
-                        { text: 'Planificar tareas', correct: true },
-                        { text: 'Comunicar con claridad', correct: true },
-                        { text: 'Improvisar decisiones', correct: false }
-                    ],
-                    tutor: 'Pensá en orden y previsión.',
-                    explanation: 'La organización se sostiene con planificación, registro y buena comunicación.'
+                        { text: "Titularidad del dominio del inmueble", correct: true },
+                        { text: "Inexistencia de embargos o hipotecas", correct: true },
+                        { text: "Ausencia de inhibición general de vender", correct: true },
+                        { text: "Recibo de sueldo del inquilino firmado", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Enfócate en el certificado de dominio y el informe de inhibiciones del titular.",
+                    explanation: "Comprobar la <strong>titularidad</strong>, descartar <strong>embargos</strong> y verificar <strong>inhibiciones</strong> garantiza la operación."
                 },
                 {
                     type: 'text',
-                    badge: 'Procedimientos',
-                    title: 'Uso práctico',
-                    instruction: 'Explicá para qué sirve aplicar procedimientos claros en la gestión inmobiliaria.',
+                    badge: "Redacción técnica",
+                    title: "Confección de boleto",
+                    instruction: "Instruye paso a paso el llenado de las cláusulas esenciales de un boleto de compraventa inmobiliario.",
+                    tutor: "Detalla la identificación de sujetos, la descripción catastral, el precio y la forma de pago del saldo.",
+                    explanation: "Individualizar a las <strong>partes</strong>, precisar la <strong>nomenclatura</strong> y acordar el <strong>saldo</strong> estructura el boleto.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('procedimient')) c++;
-                        if (v.includes('orden')) c++;
-                        if (v.includes('gestion')) c++;
-                        if (v.includes('coherenci')) c++;
-                        if (v.includes('control')) c++;
-                        if (v.includes('diari')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en coherencia y control.',
-                    explanation: 'Los procedimientos aportan orden, coherencia y control en la gestión diaria.'
+                        const roots = ["partes", "nomenc", "saldo", "indivi", "precis", "acorda", "estruc", "boleto", "instru", "paso"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'blanks',
-                    badge: 'Roles profesionales',
-                    title: 'Canal correcto',
-                    instruction: 'Completá la frase.<br><br>Las indicaciones operativas deben canalizarse a través del ________.',
-                    blanks: ['administrador'],
-                    tutor: 'Pensá en jerarquía.',
-                    explanation: 'La jerarquía ordena la comunicación y el trabajo.'
+                    anyOrder: false,
+                    badge: "Instrumental locativo",
+                    title: "Modelo de contrato",
+                    instruction: "Completar la frase<br><br>En la redacción del contrato de locación se debe consignar la dirección del inmueble, el monto del ________ mensual y las garantías del ______.",
+                    blanks: ["alquiler", "fiador"],
+                    tutor: "Piensa en el canon periódico y la figura que respalda el cumplimiento del contrato.",
+                    explanation: "Establecer el <strong>alquiler</strong> mensual e identificar al <strong>fiador</strong> otorga solidez al <strong>contrato</strong>."
                 },
                 {
                     type: 'traffic',
-                    badge: 'Conducta profesional',
-                    title: 'Acciones en la práctica',
-                    instruction: 'Indicá si las afirmaciones son correctas o incorrectas.',
+                    badge: "Reserva confirmatoria",
+                    title: "Cláusula de seña",
+                    instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: 'Actuar sin consultar', color: 'red' },
-                        { text: 'Registrar situaciones relevantes', color: 'green' },
-                        { text: 'Ignorar normas internas', color: 'red' },
-                        { text: 'Respetar horarios laborales', color: 'green' }
-                    ],
-                    tutor: 'Pensá en responsabilidad profesional.',
-                    explanation: 'Las conductas responsables fortalecen la gestión.'
+                        { text: "La entrega de seña se interpreta en principio como confirmatoria de la operación de compraventa", color: "green" },
+                        { text: "Si el comprador que dio seña confirmatoria se arrepiente, conserva el derecho a exigir el inmueble", color: "red" },
+                        { text: "Pactada la facultad de arrepentirse, el vendedor que desiste debe devolver la seña doblada", color: "green" },
+                        { text: "La seña debe ser siempre por un monto superior al cincuenta por ciento del precio de la propiedad", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Analiza los efectos de la seña confirmatoria y las consecuencias del arrepentimiento acordado.",
+                    explanation: "La <strong>seña</strong> actúa como <strong>confirmatoria</strong>, salvo pacto de <strong>arrepentimiento</strong> con devolución doblada."
                 },
                 {
                     type: 'text',
-                    badge: 'Evaluación',
-                    title: 'Decisión informada',
-                    instruction: 'Explicá para qué sirve evaluar una situación antes de tomar una decisión en la gestión inmobiliaria.',
+                    badge: "Honorarios profesionales",
+                    title: "Cálculo de comisión",
+                    instruction: "Prescribe el procedimiento para liquidar la comisión del corredor en una compraventa del tres por ciento.",
+                    tutor: "Aplica la alícuota sobre el valor total de la operación cobrando por partes iguales a las partes.",
+                    explanation: "Calcular la <strong>comisión</strong> requiere aplicar el <strong>porcentaje</strong> de ley sobre el <strong>precio</strong> acordado.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('evaluacion')) c++;
-                        if (v.includes('criteri')) c++;
-                        if (v.includes('decision')) c++;
-                        if (v.includes('prevenir')) c++;
-                        if (v.includes('error')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en prevenir errores y conflictos.',
-                    explanation: 'Evaluar sirve para prevenir errores y tomar decisiones con criterio dentro de la gestión.'
+                        const roots = ["comisi", "porcen", "precio", "calcul", "requie", "aplica", "acorda", "prescr", "proced", "liquid"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'checklist',
-                    badge: 'Decisión profesional',
-                    title: 'Pasos previos',
-                    instruction: 'Marcá pasos adecuados antes de tomar una decisión.',
+                    badge: "Trámites notariales",
+                    title: "Documentación para escritura",
+                    instruction: "Determina los tres documentos que el vendedor debe entregar al escribano para confeccionar la escritura.",
                     items: [
-                        { text: 'Consultar si es necesario', correct: true },
-                        { text: 'Analizar información', correct: true },
-                        { text: 'Decidir por impulso', correct: false },
-                        { text: 'Evaluar riesgos', correct: true }
-                    ],
-                    tutor: 'Pensá antes de actuar.',
-                    explanation: 'Las decisiones responsables requieren análisis previo.'
+                        { text: "Título de propiedad o escritura anterior", correct: true },
+                        { text: "Boletas de impuestos y servicios al día", correct: true },
+                        { text: "Constancia de CUIT o CUIL y datos personales", correct: true },
+                        { text: "Copia de la seña recibida en la inmobiliaria", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Agrupa los antecedentes dominiales, el estado de deuda impositiva y los datos fiscales del titular.",
+                    explanation: "Aportar el <strong>título</strong> anterior, los <strong>impuestos</strong> al día y la <strong>constancia</strong> fiscal permite escriturar."
                 },
                 {
                     type: 'text',
-                    badge: 'Responsabilidad',
-                    title: 'Rol profesional',
-                    instruction: 'Explicá por qué actuar con responsabilidad es clave en la gestión inmobiliaria.',
+                    badge: "Formalización legal",
+                    title: "Certificación y aforo",
+                    instruction: "Guía la tramitación del aforo del impuesto de sellos y la certificación de firmas del contrato.",
+                    tutor: "Pauta la presentación del instrumento para el pago de tributos locales y la autenticación notarial.",
+                    explanation: "Realizar el <strong>aforo</strong> para el impuesto de <strong>sellos</strong> y la <strong>certificación</strong> otorga fecha cierta.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('responsabil')) c++;
-                        if (v.includes('rol')) c++;
-                        if (v.includes('gestion')) c++;
-                        if (v.includes('sosten')) c++;
-                        if (v.includes('confianz')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en consecuencias y confianza.',
-                    explanation: 'La responsabilidad sostiene el rol profesional y genera confianza en la gestión.'
+                        const roots = ["aforo", "sellos", "certif", "realiz", "impues", "otorga", "fecha", "cierta", "guia", "tramit"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'traffic',
-                    badge: 'Ética laboral',
-                    title: 'Práctica cotidiana',
-                    instruction: 'Indicá si las afirmaciones son correctas o incorrectas.',
+                    badge: "Análisis de solvencia",
+                    title: "Verificación de garantías",
+                    instruction: "Marca afirmaciones correctas",
                     items: [
-                        { text: 'Cumplir normas laborales', color: 'green' },
-                        { text: 'Priorizar intereses personales', color: 'red' },
-                        { text: 'Respetar roles definidos', color: 'green' },
-                        { text: 'Evitar dejar registro', color: 'red' }
-                    ],
-                    tutor: 'Pensá en ética y profesionalismo.',
-                    explanation: 'La ética guía la práctica diaria.'
+                        { text: "El estudio de título de la garantía propietaria permite verificar que la finca no esté embargada", color: "green" },
+                        { text: "Un inmueble anotado como bien de familia o vivienda única puede embargarse sin renuncia previa", color: "red" },
+                        { text: "Es necesario corroborar los datos de los recibos de sueldo presentados por el garante", color: "green" },
+                        { text: "Cualquier fotocopia simple de un recibo de sueldo constituye garantía inembargable suficiente", color: "red" }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Revisa las tramas de inembargabilidad y la autenticidad de los ingresos declarados por el fiador.",
+                    explanation: "Analizar la <strong>garantía</strong> requiere verificar <strong>embargos</strong> y la validez de los <strong>recibos</strong> presentados."
                 },
                 {
                     type: 'text',
-                    badge: 'Gestión del reclamo',
-                    title: 'Resolución operativa',
-                    instruction: 'Ante un reclamo no urgente de un consorcista, explicá qué pasos seguirías para resolverlo dentro de la gestión diaria.',
+                    badge: "Documento de propuesta",
+                    title: "Redacción de oferta",
+                    instruction: "Pauta los campos requeridos en la propuesta de compra con descripción de superficie y plazos.",
+                    tutor: "Ordena la especificación de metros cuadrados, el precio ofrecido y la fecha límite de aceptación.",
+                    explanation: "Detallar la <strong>oferta</strong>, la <strong>superficie</strong> del inmueble y el plazo de <strong>vigencia</strong> formaliza la propuesta.",
                     validation: (raw) => {
                         const v = normalizar(raw);
-                        let c = 0;
-                        if (v.includes('criteri')) c++;
-                        if (v.includes('comunicacion')) c++;
-                        if (v.includes('registr')) c++;
-                        if (v.includes('orden')) c++;
-                        if (v.includes('constanci')) c++;
-                        if (v.includes('seguimient')) c++;
-                        if (v.includes('gestion')) c++;
-                        return c >= 2;
-                    },
-                    tutor: 'Pensá en ordenar la acción y dejar constancia.',
-                    explanation: 'Se evalúa el reclamo, se comunica la decisión al consorcista y se deja registro para el seguimiento en la gestión.'
+                        const roots = ["oferta", "superf", "vigenc", "detall", "inmueb", "plazo", "formal", "propue", "pauta", "campos"];
+                        return roots.filter(r => v.includes(r)).length >= 2;
+                    }
                 },
                 {
                     type: 'checklist',
-                    badge: 'Cierre práctico',
-                    title: 'Buenas prácticas finales',
-                    instruction: 'Marcá buenas prácticas profesionales en la gestión inmobiliaria.',
+                    badge: "Rendición financiera",
+                    title: "Informe del mandatario",
+                    instruction: "Compila los deberes de rendición de cuentas que el mandatario debe presentar al concluir la gestión.",
                     items: [
-                        { text: 'Registro de actuaciones', correct: true },
-                        { text: 'Comunicación clara', correct: true },
-                        { text: 'Improvisación', correct: false },
-                        { text: 'Respeto de roles', correct: true }
-                    ],
-                    tutor: 'Pensá en profesionalismo.',
-                    explanation: 'Las buenas prácticas consolidan una gestión inmobiliaria profesional.'
+                        { text: "Detalle de ingresos y gastos efectuados", correct: true },
+                        { text: "Entrega de documentación y comprobantes", correct: true },
+                        { text: "Restitución de saldos de dinero no utilizados", correct: true },
+                        { text: "Ocultamiento de la comisión cobrada a terceros", correct: false }
+                    ].sort(() => Math.random() - 0.5),
+                    tutor: "Busca las obligaciones de transparencia financiera y entrega de comprobantes de la operación.",
+                    explanation: "Presentar el <strong>detalle</strong> de gastos, los <strong>comprobantes</strong> y restituir el <strong>saldo</strong> cumple la rendición."
                 }
             ]
         };
 
-        let currentModule = '';
+let currentModule = '';
         let currentIndex = 0;
         let attemptCount = 0;
         let lastAudioModule = null;
